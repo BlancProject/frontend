@@ -1,9 +1,10 @@
-import Link from 'next/link';
+import Sidebar from '@/components/Common/Sidebar';
 
 export default function Main() {
   return (
-    <div>
-      <Link href={'/category1'}>카테고리 1</Link>
+    <div className="flex h-screen ">
+      <Sidebar />
+      <div className=" w-full"></div>
     </div>
   );
 }
