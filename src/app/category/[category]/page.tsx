@@ -1,15 +1,33 @@
 'use client';
 
-import Header from '@/components/Header';
-import MenuBar from '@/components/MenuBar';
-import PersonalPick from '@/components/PesonalPick';
-import Product from '@/components/Product';
+import { useEffect, useState } from 'react';
 
-export default function Main() {
+import MenuBar from '@/components/Category/MenuBar';
+import PersonalPick from '@/components/Category/PesonalPick';
+import Product from '@/components/Category/Product';
+
+export default function CategoryPage({
+  params,
+}: {
+  params: { category: string };
+}) {
+  const [title, setTitle] = useState(' ');
+  console.log(params.category);
+  useEffect(() => {
+    if (params.category == 'skincare') {
+      setTitle('스킨케어');
+    }
+    if (params.category == 'makeup') {
+      setTitle('메이크업');
+    }
+    if (params.category == 'clensing') {
+      setTitle('클렌징');
+    }
+  }, []);
   return (
     <>
       <div className="mx-auto px-4">
-        <p className="text-xl pl-60 py-5">스킨케어</p>
+        <p className="text-xl pl-60 py-5">{title}</p>
         <PersonalPick />
         <br />
         <MenuBar />
