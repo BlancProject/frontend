@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Header() {
   return (
     <div className="h-full border-black border-b">
@@ -8,7 +10,9 @@ export default function Header() {
       </div>
 
       <div className="flex justify-center items-center space-x-32 mb-7">
-        <div className="font-light text-6xl">BLANC</div>
+        <Link className="font-light text-6xl" href={'/'}>
+          BLANC
+        </Link>
         <div className="flex border w-4/12 border-black rounded-2xl">
           <input
             className="w-full py-2 px-3 rounded-2xl"
