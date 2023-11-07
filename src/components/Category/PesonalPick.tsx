@@ -35,7 +35,7 @@ const PersonalPick = () => {
         setSkinConcern((prev) =>
           prev.includes(concern)
             ? prev.filter((c) => c !== concern)
-            : [...prev, concern],
+            : [...prev, concern]
         ); // 그렇지 않으면 기존 로직에 따라 선택/취소를 수행합니다.
       }
     }
