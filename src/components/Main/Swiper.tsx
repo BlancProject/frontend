@@ -1,3 +1,9 @@
+import Commercial from './Commercial';
+
 export default function Swiper() {
-  return <div className="bg-green-300 h-96"></div>;
+  return (
+    <div>
+      <Commercial />
+    </div>
+  );
 }
