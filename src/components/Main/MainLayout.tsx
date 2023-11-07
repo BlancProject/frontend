@@ -4,7 +4,7 @@ import Swiper from './Swiper';
 
 export default function MainLayout() {
   return (
-    <div className="w-full mr-52">
+    <div className="w-2/3">
       <Swiper />
       <BestProduct />
       <CoreBrand />
