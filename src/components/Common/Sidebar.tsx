@@ -7,7 +7,7 @@ import Hamburger from '../../../public/hamburger.png';
 import CategoryLink from './CategoryLink';
 
 export default function Sidebar() {
-  const width = 160;
+  const width = 200;
   const [isOpen, setIsOpen] = useState(false);
   const [xPosition, setX] = useState(width);
 
@@ -31,9 +31,9 @@ export default function Sidebar() {
       >
         <div className="text-lg m-3 mb-6 ">카테고리</div>
         <div className="grid grid-cols-1  mx-4 ">
-          <CategoryLink link="/category1" category="카테고리 1" />
-          <CategoryLink link="/category2" category="카테고리 2" />
-          <CategoryLink link="/category3" category="카테고리 3" />
+          <CategoryLink link="/category/skincare" category="스킨케어" />
+          <CategoryLink link="/category/makeup" category="메이크업" />
+          <CategoryLink link="/category/clensing" category="클랜징" />
         </div>
       </div>
       <button
