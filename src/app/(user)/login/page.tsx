@@ -66,8 +66,8 @@ export default function LoginPage() {
             </button>
           </TabPanel>
           <TabPanel className="flex flex-col mt-14 px-10">
-            <button className="flex items-center justify-center w-full p-2 h-14 font-medium text-lg bg-yellow-500 text-white rounded-md cursor-pointer mb-5">
-              <RiKakaoTalkFill className="mr-2" size="22" />
+            <button className="flex items-center justify-center w-full p-2 h-14 font-medium text-lg bg-yellow-300 text-yellow-950 rounded-md cursor-pointer mb-5">
+              <RiKakaoTalkFill className="mr-2" size="22" color="38230D" />
               카카오로 로그인
             </button>
             <button className="flex items-center justify-center w-full p-2 h-14 font-medium text-lg rounded-2xl border rounded-md cursor-pointer mb-5">
