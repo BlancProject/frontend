@@ -3,10 +3,11 @@ import Link from 'next/link';
 export default function Header() {
   return (
     <div className="h-full border-black border-b">
-      <div className=" flex justify-end space-x-4 mt-4 mb-7 mr-48">
+      <div className=" flex justify-end space-x-4 mt-4 mb-4 mr-48">
         <div>로그인</div>
         <div>마이페이지</div>
-        <div>장바구니</div>
+
+        <Link href={'/cart'}>장바구니</Link>
       </div>
 
       <div className="flex justify-center items-center space-x-32 mb-7">
