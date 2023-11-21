@@ -1,10 +1,23 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const pathname = usePathname();
+  if (
+    pathname === '/login' ||
+    pathname === '/register' ||
+    pathname === '/register/detail'
+  ) {
+    return null;
+  }
+
   return (
     <div className="h-full border-black border-b">
       <div className=" flex justify-end space-x-4 mt-4 mb-4 mr-48">
-        <div>로그인</div>
+        <Link href={'/login'}>로그인</Link>
+
         <div>마이페이지</div>
 
         <Link href={'/cart'}>장바구니</Link>
