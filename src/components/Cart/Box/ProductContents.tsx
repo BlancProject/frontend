@@ -16,7 +16,6 @@ export default function ProductContents() {
       <div>35,000원</div>
       <div className="flex flex-col col-span-3">
         <button className="">바로구매</button>
-        <button>찜하기</button>
         <button>삭제</button>
       </div>
     </div>
