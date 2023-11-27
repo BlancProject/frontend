@@ -1,8 +1,9 @@
 import { BsCart4 } from 'react-icons/bs';
 
 import BoxTitle from '@/components/Cart/Box/BoxTitle';
-import ProductContents from '@/components/Cart/Box/ProductContents';
+// import ProductContents from '@/components/Cart/Box/ProductContents';
 import Footer from '@/components/Cart/Footer';
+import Nothing from '@/components/Cart/Nothing/Nothing';
 import Procedure from '@/components/Cart/SubTitle/Procedure';
 
 export default function CartPage() {
@@ -18,9 +19,10 @@ export default function CartPage() {
         </div>
         <div className="cartBox min-h-fit rounded-xl shadow-my px-12">
           <BoxTitle />
+          <Nothing />
+          {/* <ProductContents />
           <ProductContents />
-          <ProductContents />
-          <ProductContents />
+          <ProductContents /> */}
         </div>
       </div>
       <Footer />
