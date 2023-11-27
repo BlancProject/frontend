@@ -4,7 +4,7 @@ import InfoLabel from './InfoLabel';
 
 export default function Procedure() {
   return (
-    <div className="flex mt-3">
+    <div className="flex mt-3 mr-4">
       <InfoLabel infoLabel="장바구니" />
       <MdKeyboardArrowRight size="22" color="B2B2B2" />
       <InfoLabel infoLabel="주문/결제" />
