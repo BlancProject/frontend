@@ -2,9 +2,10 @@
 
 import { useSearchParams } from 'next/navigation';
 
-import Navbar from '@/components/Category/MenuBar';
-import Product from '@/components/Category/Product';
+// import Navbar from '@/components/Category/MenuBar';
+// import Product from '@/components/Category/Product';
 import Sidebar from '@/components/Common/Sidebar';
+import SearchNothing from '@/components/Search/SearchNothing';
 
 export default function SearchPage() {
   const search = useSearchParams();
@@ -20,8 +21,9 @@ export default function SearchPage() {
             검색결과 (전체333개의 상품)
           </div>
         </div>
-        <Navbar />
-        <Product />
+        <SearchNothing keyword={keyword} />
+        {/* <Navbar />
+        <Product /> */}
       </div>
     </div>
   );
