@@ -5,7 +5,11 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 
+import useToken from '@/hooks/useAuthCheck';
+
 export default function Header() {
+  const hasToken = useToken();
+
   const [searchQuery, setSearchQuery] = useState('');
 
   const pathname = usePathname();
@@ -17,8 +21,6 @@ export default function Header() {
   ) {
     return null;
   }
-  //   The pathname string has been removed and is replaced by usePathname()
-  // The query object has been removed and is replaced by useSearchParams()
 
   const handleSearch = () => {
     router.push(`/search?keyword=${searchQuery}`);
@@ -33,7 +35,11 @@ export default function Header() {
   return (
     <div className="h-full border-black border-b">
       <div className=" flex justify-end space-x-4 mt-4 mb-4 mr-48">
-        <Link href={'/login'}>로그인</Link>
+        {hasToken ? (
+          <Link href={'/login'}>로그인</Link>
+        ) : (
+          <button>로그아웃</button>
+        )}
 
         <div>마이페이지</div>
 
