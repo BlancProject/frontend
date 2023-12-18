@@ -25,7 +25,7 @@ export default function CartPage() {
           <ProductContents /> */}
         </div>
       </div>
-      <Footer />
+      <Footer btnTitle="주문하기" path="order" />
     </div>
   );
 }
