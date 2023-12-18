@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 
-const Navbar = () => {
+type NavbarProps = {
+  onSortChange: (sortOption: string) => void;
+};
+
+const Navbar = ({ onSortChange }: NavbarProps) => {
   // 현재 선택된 메뉴 항목을 저장하는 상태
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState<string>('');
 
   return (
     <nav>
@@ -18,11 +22,28 @@ const Navbar = () => {
               onClick={(e) => {
                 e.preventDefault();
                 setSelected('인기순');
+                onSortChange('likeCount');
               }}
             >
               <span>인기순</span>
             </a>
             <p className="text-gray-200 font-extralight px-6">|</p>
+
+            <a
+              href="#"
+              className={`py-4 text-gray-700 hover:text-gray-900 ${
+                selected === '이름순' ? 'font-bold' : ''
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                setSelected('이름순');
+                onSortChange('name');
+              }}
+            >
+              이름순
+            </a>
+            <p className="text-gray-200 font-extralight px-6">|</p>
+
             <a
               href="#"
               className={`py-4 text-gray-700 hover:text-gray-900 ${
@@ -34,19 +55,6 @@ const Navbar = () => {
               }}
             >
               신상품순
-            </a>
-            <p className="text-gray-200 font-extralight px-6">|</p>
-            <a
-              href="#"
-              className={`py-4 text-gray-700 hover:text-gray-900 ${
-                selected === '판매순' ? 'font-bold' : ''
-              }`}
-              onClick={(e) => {
-                e.preventDefault();
-                setSelected('판매순');
-              }}
-            >
-              판매순
             </a>
             <p className="text-gray-200 font-extralight px-6">|</p>
             <a
