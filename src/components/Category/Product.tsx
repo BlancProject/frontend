@@ -1,9 +1,18 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const Product = () => {
+type Props = {
+  name: string;
+  price: number;
+  id: number;
+};
+
+const Product = ({ name, price, id }: Props) => {
+  const router = useRouter();
+
   const handleProductClick = () => {
-    console.log('제품 클릭!');
+    router.push(`/detail?id=${id}`);
   };
 
   return (
@@ -22,8 +31,8 @@ const Product = () => {
       </div>
       <div className="flex flex-col mt-5 items-center">
         <p className="mb-2 font-bold text-gray-400"> 브랜드</p>
-        <p className="mb-2 text-gray-700"> 제품명</p>
-        <p className="mb-2 text-[19px] font-bold text-red-500">가격</p>
+        <p className="mb-2 text-gray-700"> {name}</p>
+        <p className="mb-2 text-[19px] font-bold text-red-500">{price}</p>
       </div>
     </button>
   );
