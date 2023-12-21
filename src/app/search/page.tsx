@@ -47,7 +47,6 @@ export default function SearchPage() {
       const response = await baseInstance.get(
         `/products/search/${keyword}?page=${page}&size=10&sort=${sortOption}`
       );
-      console.log(response.data);
       setTotalElements(response.data.totalElements);
       setTotalPage(response.data.totalPages);
       setKeywordProducts(response.data.content);
@@ -55,7 +54,6 @@ export default function SearchPage() {
       alert(error);
     }
   };
-  console.log(page);
 
   return (
     <div className="flex h-screen">

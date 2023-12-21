@@ -10,7 +10,6 @@ const Product = ({ name, price }: Props) => {
   const handleProductClick = () => {
     console.log('제품 클릭!');
   };
-  console.log(price);
 
   return (
     <button
