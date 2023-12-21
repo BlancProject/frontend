@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
-import InputBox from '@/components/User/InputBox';
+import InputBox from '@/components/User/Register/InputBox';
 
 export default function RegisterPage() {
   const router = useRouter();

@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import GenderBtn from '@/components/User/GenderBtn';
-import SkinTypeBtn from '@/components/User/SkinTypeBtn';
-import SkinWorryBtn from '@/components/User/SkinWorryBtn';
-import SubTitle from '@/components/User/SubTitle';
+import GenderBtn from '@/components/User/Register/GenderBtn';
+import SkinTypeBtn from '@/components/User/Register/SkinTypeBtn';
+import SkinWorryBtn from '@/components/User/Register/SkinWorryBtn';
+import SubTitle from '@/components/User/Register/SubTitle';
 
 export default function RegisterDetailPage() {
   const router = useRouter();
