@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 type NavbarProps = {
-  onSortChange: (sortOption: string) => void;
+  setSortOption: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const Navbar = ({ onSortChange }: NavbarProps) => {
+const Navbar = ({ setSortOption }: NavbarProps) => {
   // 현재 선택된 메뉴 항목을 저장하는 상태
   const [selected, setSelected] = useState<string>('');
 
@@ -22,7 +22,7 @@ const Navbar = ({ onSortChange }: NavbarProps) => {
               onClick={(e) => {
                 e.preventDefault();
                 setSelected('인기순');
-                onSortChange('likeCount');
+                setSortOption('likeCount');
               }}
             >
               <span>인기순</span>
@@ -37,11 +37,12 @@ const Navbar = ({ onSortChange }: NavbarProps) => {
               onClick={(e) => {
                 e.preventDefault();
                 setSelected('이름순');
-                onSortChange('name');
+                setSortOption('name');
               }}
             >
               이름순
             </a>
+
             <p className="text-gray-200 font-extralight px-6">|</p>
 
             <a
