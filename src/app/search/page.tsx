@@ -33,7 +33,9 @@ export default function SearchPage() {
 
   const [page, setPage] = useState<number>(0);
   const [totlaPage, setTotalPage] = useState<number>(0);
+
   const [keywordProducts, setKeywordProducts] = useState<Product[]>([]);
+
   const [totalElements, setTotalElements] = useState<number>(0);
 
   const [sortOption, setSortOption] = useState<string>('name');
@@ -71,7 +73,12 @@ export default function SearchPage() {
           <div>
             <Navbar setSortOption={setSortOption} />
             {keywordProducts.map((product, i) => (
-              <Product key={i} name={product.name} price={product.price} />
+              <Product
+                key={i}
+                name={product.name}
+                price={product.price}
+                id={product.id}
+              />
             ))}
           </div>
         )}

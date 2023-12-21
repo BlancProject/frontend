@@ -1,14 +1,18 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 type Props = {
   name: string;
   price: number;
+  id: number;
 };
 
-const Product = ({ name, price }: Props) => {
+const Product = ({ name, price, id }: Props) => {
+  const router = useRouter();
+
   const handleProductClick = () => {
-    console.log('제품 클릭!');
+    router.push(`/detail?id=${id}`);
   };
 
   return (

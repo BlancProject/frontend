@@ -12,6 +12,7 @@ export default function PageNation({ totalPage, setPage }: Props) {
     for (let i = 1; i <= totalPage; i++) {
       pageNumbers.push(
         <button
+          key={i}
           className="mx-2"
           onClick={() => {
             setPage(i - 1);
