@@ -4,12 +4,16 @@ import { useState } from 'react';
 import { GoCheckCircle } from 'react-icons/go';
 
 import baseInstance from '@/api/api-instance';
+import useUserIdStore from '@/utils/zustand/UserIdStore';
 
 import LoginInput from './LoginInput';
 
 export default function LoginTab() {
   const [id, setId] = useState<string>('');
   const [pw, setPw] = useState<string>('');
+
+  const { setUserId } = useUserIdStore();
+
   const router = useRouter();
 
   const handleSubmit = async () => {
@@ -25,8 +29,8 @@ export default function LoginTab() {
       if (response.status == 200) {
         const token = response.data.token;
         Cookies.set('token', token, { expires: 1 });
-
-        router.push('/');
+        setUserId(response.data.id);
+        router.replace('/');
       }
     } catch {
       alert('로그인 실패');

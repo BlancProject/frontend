@@ -1,13 +1,13 @@
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 
-const useToken = (cookieName = 'token') => {
+const useToken = () => {
   const [hasToken, setHasToken] = useState<boolean>(false);
 
   useEffect(() => {
-    const token = Cookies.get(cookieName);
+    const token = Cookies.get('token');
     setHasToken(!token);
-  }, [cookieName]);
+  }, []);
 
   return hasToken;
 };
