@@ -42,9 +42,10 @@ export default function LoginTab() {
 
   const handleOnKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
-      handleSubmit(); // Enter 입력이 되면 클릭 이벤트 실행
+      handleSubmit();
     }
   };
+
   return (
     <div>
       <div className="inputBox max-w-md w-full h-32 rounded-2xl border border-stone-300 border-solid grid grid-cols-1 divide-y mt-9 mb-4">
