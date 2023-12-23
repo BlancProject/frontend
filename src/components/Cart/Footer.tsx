@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 
 import baseInstance from '@/api/api-instance';
+import useCartListStore from '@/utils/zustand/CartListStore';
 import useProductsStore from '@/utils/zustand/ProductsStore';
 import useUserIdStore from '@/utils/zustand/UserIdStore';
 
@@ -14,6 +15,7 @@ export default function Footer({ btnTitle, path }: Props) {
   const router = useRouter();
   const { products } = useProductsStore();
   const { userId } = useUserIdStore();
+  const { cartStore } = useCartListStore();
 
   const makeOrder = async () => {
     const data = {
@@ -33,6 +35,9 @@ export default function Footer({ btnTitle, path }: Props) {
   const handleOnClick = () => {
     if (path === 'finish') {
       makeOrder();
+    } else if (cartStore.length === 0) {
+      alert('장바구니가 비어 있습니다.');
+      return;
     } else {
       router.push(`/${path}`);
     }

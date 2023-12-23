@@ -1,25 +1,19 @@
 import { RxCross2 } from 'react-icons/rx';
 
 import baseInstance from '@/api/api-instance';
-
-type CartItem = {
-  id: number;
-  productQuantity: number;
-  productId: number;
-};
+import useRefreshStore from '@/utils/zustand/RefreshStore';
 
 type Props = {
   id: number;
-  setCartList: React.Dispatch<React.SetStateAction<CartItem[] | undefined>>;
 };
 
-export default function OptionBtns({ id, setCartList }: Props) {
+export default function OptionBtns({ id }: Props) {
+  const { setRefresh } = useRefreshStore();
+
   const removeCartList = async () => {
     try {
       await baseInstance.delete(`/carts/${id}`);
-      setCartList((prevCartList) =>
-        prevCartList?.filter((item) => item.id !== id)
-      );
+      setRefresh((refresh) => refresh * -1);
     } catch (error) {
       alert(error);
     }
