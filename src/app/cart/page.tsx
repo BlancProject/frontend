@@ -1,29 +1,27 @@
-import { BsCart4 } from 'react-icons/bs';
+'use client';
 
-import BoxTitle from '@/components/Cart/Box/BoxTitle';
-// import ProductContents from '@/components/Cart/Box/ProductContents';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
+import CartBox from '@/components/Cart/Box/CartBox';
 import Footer from '@/components/Cart/Footer';
-import Nothing from '@/components/Cart/Nothing/Nothing';
-import Procedure from '@/components/Cart/SubTitle/Procedure';
+import CartSubTitle from '@/components/Cart/SubTitle/CartSubTitle';
+import useToken from '@/hooks/useAuthCheck';
 
 export default function CartPage() {
+  const router = useRouter();
+  const hasToken = useToken();
+  useEffect(() => {
+    if (hasToken) {
+      alert('로그인 먼저 해주세요!');
+      router.push('/login');
+    }
+  }, [hasToken]);
   return (
     <div className="all flex flex-col h-screen">
-      <div className="body mx-40">
-        <div className="subheader flex justify-between my-10">
-          <div className="flex text-4xl ml-4">
-            <BsCart4 />
-            <div className="flex font-Inter ml-4">장바구니</div>
-          </div>
-          <Procedure />
-        </div>
-        <div className="cartBox min-h-fit rounded-xl shadow-my px-12">
-          <BoxTitle />
-          <Nothing />
-          {/* <ProductContents />
-          <ProductContents />
-          <ProductContents /> */}
-        </div>
+      <div className="body mx-40 pb-32">
+        <CartSubTitle />
+        <CartBox />
       </div>
       <Footer btnTitle="주문하기" path="order" />
     </div>
