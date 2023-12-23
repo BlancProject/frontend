@@ -1,19 +1,27 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
 import Footer from '@/components/Cart/Footer';
-import OrderBoxTitle from '@/components/Order/OrderBox/OrderBoxTitle';
-import OrderProductContent from '@/components/Order/OrderBox/OrderProductContent';
+import OrderBox from '@/components/Order/OrderBox/OrderBox';
 import SubHeader from '@/components/Order/SubHeader';
+import useToken from '@/hooks/useAuthCheck';
 
 export default function OrderPage() {
+  const router = useRouter();
+  const hasToken = useToken();
+  useEffect(() => {
+    if (hasToken) {
+      alert('로그인 먼저 해주세요!');
+      router.push('/login');
+    }
+  }, [hasToken]);
   return (
     <div className="all flex flex-col h-screen">
       <div className="body mx-40">
         <SubHeader />
-        <div className="cartBox min-h-fit px-12">
-          <OrderBoxTitle />
-          <OrderProductContent />
-          <OrderProductContent />
-          <OrderProductContent />
-        </div>
+        <OrderBox />
       </div>
       <Footer btnTitle="결제하기" path="finish" />
     </div>
