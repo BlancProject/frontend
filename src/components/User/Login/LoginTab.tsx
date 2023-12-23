@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { GoCheckCircle } from 'react-icons/go';
 
 import baseInstance from '@/api/api-instance';
+import useRefreshStore from '@/utils/zustand/RefreshStore';
 import useUserIdStore from '@/utils/zustand/UserIdStore';
 
 import LoginInput from './LoginInput';
@@ -13,6 +14,7 @@ export default function LoginTab() {
   const [pw, setPw] = useState<string>('');
 
   const { setUserId } = useUserIdStore();
+  const { setRefresh } = useRefreshStore();
 
   const router = useRouter();
 
@@ -30,6 +32,7 @@ export default function LoginTab() {
         const token = response.data.token;
         Cookies.set('token', token, { expires: 1 });
         setUserId(response.data.id);
+        setRefresh((refresh) => refresh * -1);
         router.replace('/');
       }
     } catch {

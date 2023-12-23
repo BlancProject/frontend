@@ -9,19 +9,12 @@ import baseInstance from '@/api/api-instance';
 import AmountBtn from './AmountBtn';
 import OptionBtns from './OptionBtns';
 
-type CartItem = {
-  id: number;
-  productQuantity: number;
-  productId: number;
-};
-
 type Props = {
   cartItem: {
     id: number;
     productQuantity: number;
     productId: number;
   };
-  setCartList: React.Dispatch<React.SetStateAction<CartItem[] | undefined>>;
 };
 
 type ProductData = {
@@ -39,7 +32,7 @@ type ProductData = {
   category: string;
 };
 
-export default function ProductContents({ cartItem, setCartList }: Props) {
+export default function ProductContents({ cartItem }: Props) {
   const [amount, setAmount] = useState<number>(1);
   const [check, setCheck] = useState<boolean>(false);
   const [productData, setProductData] = useState<ProductData | undefined>();
@@ -90,7 +83,7 @@ export default function ProductContents({ cartItem, setCartList }: Props) {
       <div className="totalPrice w-32 text-center ">
         {productData?.price && <>{productData.price * amount}원</>}
       </div>
-      <OptionBtns id={cartItem.id} setCartList={setCartList} />
+      <OptionBtns id={cartItem.id} />
     </div>
   );
 }
