@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 
 import LoginLogoutBtn from './Header/LoginLogoutBtn';
+import MyPageLink from './Header/MypageLink';
 
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -35,7 +36,7 @@ export default function Header() {
       <div className=" flex justify-end space-x-4 mt-4 mb-4 mr-48">
         <LoginLogoutBtn />
 
-        <Link href={'/mypage'}>마이페이지</Link>
+        <MyPageLink />
 
         <Link href={'/cart'}>장바구니</Link>
       </div>
