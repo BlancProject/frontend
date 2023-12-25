@@ -1,4 +1,33 @@
+import { useEffect, useState } from 'react';
+
+import baseInstance from '@/api/api-instance';
+import useUserIdStore from '@/utils/zustand/UserIdStore';
+
+import Like from './Like';
+
+type Likes = {
+  id: number;
+  userId: number;
+  productId: number;
+};
+
 export default function LikeList() {
+  const { userId } = useUserIdStore();
+  const [likes, setLikes] = useState<Likes[]>([]);
+
+  const getLikeList = async () => {
+    try {
+      const response = await baseInstance.get(`/likes/${userId}`);
+      setLikes(response.data);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  useEffect(() => {
+    getLikeList();
+  }, []);
+
   return (
     <div>
       <div className="ml-4 leading-normal">
@@ -6,12 +35,9 @@ export default function LikeList() {
           찜리스트
         </div>
         <div className="flex flex-wrap">
-          <div className="h-56 w-44 rounded-2xl mb-7 mr-8 bg-gray-200"></div>
-          <div className="h-56 w-44 rounded-2xl mb-7 mr-8 bg-gray-200"></div>
-          <div className="h-56 w-44 rounded-2xl mb-7 mr-8 bg-gray-200"></div>
-          <div className="h-56 w-44 rounded-2xl mb-7 mr-8 bg-gray-200"></div>
-          <div className="h-56 w-44 rounded-2xl mb-7 mr-8 bg-gray-200"></div>
-          <div className="h-56 w-44 rounded-2xl mb-7 mr-8 bg-gray-200"></div>
+          {likes.map((like, i) => (
+            <Like key={i} like={like} />
+          ))}
         </div>
       </div>
     </div>
