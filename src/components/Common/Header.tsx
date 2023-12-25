@@ -1,20 +1,14 @@
 'use client';
 
-import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 
-import useToken from '@/hooks/useAuthCheck';
-import useUserIdStore from '@/utils/zustand/UserIdStore';
+import LoginLogoutBtn from './Header/LoginLogoutBtn';
 
 export default function Header() {
-  const hasToken = useToken();
-
   const [searchQuery, setSearchQuery] = useState('');
-
-  const { setUserId } = useUserIdStore();
 
   const pathname = usePathname();
   const router = useRouter();
@@ -39,23 +33,9 @@ export default function Header() {
   return (
     <div className="h-full border-black border-b">
       <div className=" flex justify-end space-x-4 mt-4 mb-4 mr-48">
-        {hasToken ? (
-          <Link href={'/login'}>로그인</Link>
-        ) : (
-          <button
-            onClick={() => {
-              Cookies.remove('token');
-              // 나중에 로그아웃 api 추가 해야함
-              setUserId(0);
-              alert('로그아웃하셨습니다');
-              window.location.replace('/');
-            }}
-          >
-            로그아웃
-          </button>
-        )}
+        <LoginLogoutBtn />
 
-        <div>마이페이지</div>
+        <Link href={'/mypage'}>마이페이지</Link>
 
         <Link href={'/cart'}>장바구니</Link>
       </div>
