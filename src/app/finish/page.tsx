@@ -10,7 +10,6 @@ export default function FinishPage() {
   const orderId = search.get('id');
   const totalPrice = search.get('tp');
 
-  console.log(orderId, totalPrice);
   return (
     <div className="body mx-40">
       <div className="subheader flex justify-end my-10">

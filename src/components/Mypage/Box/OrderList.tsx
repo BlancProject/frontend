@@ -17,7 +17,6 @@ export default function OrderList() {
       alert(error);
     }
   };
-  console.log(list);
 
   useEffect(() => {
     getLikeList();
