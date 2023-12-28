@@ -20,6 +20,7 @@ export default function Sidebar() {
       setIsOpen(false);
     }
   };
+  //SUNCARE 메이크업 연결되어있는거 나중에 수정
   return (
     <div className="flex">
       <div
@@ -31,9 +32,9 @@ export default function Sidebar() {
       >
         <div className="text-lg m-3 mb-6 ">카테고리</div>
         <div className="grid grid-cols-1  mx-4 ">
-          <CategoryLink link="/category/skincare" category="스킨케어" />
-          <CategoryLink link="/category/makeup" category="메이크업" />
-          <CategoryLink link="/category/clensing" category="클랜징" />
+          <CategoryLink link="/category?=Skincare" category="스킨케어" />
+          <CategoryLink link="/category?=SUNCARE" category="메이크업" />
+          <CategoryLink link="/category?=cleansing" category="클렌징" />
         </div>
       </div>
       <button

@@ -28,8 +28,6 @@ export default function CartBox() {
     getCartList();
   }, [refresh]);
 
-  console.log(cartStore);
-
   const getCartList = async () => {
     try {
       const response = await baseInstance.get(`/carts/${userId}`);
